@@ -101,6 +101,13 @@ npm start
 
 ---
 
+Create a `.env` file inside the `client` folder:
+
+```env
+NEXT_PUBLIC_API_BASE_URL=<be_url_here>
+```
+
+
 ### 5. Run the frontend
 ```bash
 cd client
