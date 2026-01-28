@@ -7,7 +7,7 @@ This project showcases a clean **full-stack architecture** with separate fronten
 
 ## 📌 Project Overview
 
-**HRMS-Lite** is a simple and scalable HRMS starter project built for learning and portfolio purposes.  
+**HRMS-Lite** is a simple and scalable HRMS starter project.  
 It demonstrates:
 
 - Full-stack application structure  
