@@ -1,22 +1,22 @@
 const validate =
   (schema, property = "body") =>
   (req, res, next) => {
-    try {
-      const parsed = schema.parse(req[property]);
-      req[property] = parsed;
-      
-      next();
+    const result = schema.safeParse(req[property]);
 
-    } catch (error) {
-      return res.status(400).json({
-        success: false,
-        message: "Validation failed",
-        errors: error?.issues?.map((err) => ({
-          field: err.path.join("."),
-          message: err.message,
-        })),
-      });
+    if (result.success) {
+      req[property] = result.data;
+      return next();
     }
+
+    // Collect unique field names
+    const fields = [
+      ...new Set(result.error.issues.map((err) => err.path.join("."))),
+    ];
+
+    return res.status(400).json({
+      success: false,
+      message: `Invalid or missing fields: ${fields.join(", ")}`,
+    });
   };
 
 export default validate;
