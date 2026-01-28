@@ -51,13 +51,14 @@ const AttendanceForm = ({ onClose }: { onClose: () => void }) => {
     }
   };
   return (
-    <form onSubmit={handleSubmit} className="bg-white ">
+    <form onSubmit={handleSubmit} className="bg-white flex flex-col gap-2 ">
       <InputField
         label="Employee ID"
         name="employeeId"
         value={formData.employeeId}
         onChange={handleChange}
         placeholder="EMP101"
+        required
       />
 
       <InputField
@@ -66,11 +67,12 @@ const AttendanceForm = ({ onClose }: { onClose: () => void }) => {
         type="date"
         value={formData.date}
         onChange={handleChange}
+        required
       />
 
       {/* Status Dropdown */}
       <div className="flex flex-col gap-1">
-        <label className="text-sm font-medium text-gray-700">Status</label>
+        <label className="text-sm font-medium flex text-gray-700">Status <p className="text-xs text-red-500">*</p></label>
 
         <select
           name="status"

@@ -72,6 +72,7 @@ const AddEmployeeForm = ({ onClose }: { onClose: () => void }) => {
         value={formData.employeeId}
         onChange={handleChange}
         placeholder="EMP101"
+        required
       />
 
       <InputField
@@ -80,6 +81,7 @@ const AddEmployeeForm = ({ onClose }: { onClose: () => void }) => {
         value={formData.fullName}
         onChange={handleChange}
         placeholder="John Doe"
+        required
       />
 
       <InputField
@@ -89,6 +91,7 @@ const AddEmployeeForm = ({ onClose }: { onClose: () => void }) => {
         value={formData.email}
         onChange={handleChange}
         placeholder="john@example.com"
+        required
       />
 
       <InputField
@@ -97,6 +100,7 @@ const AddEmployeeForm = ({ onClose }: { onClose: () => void }) => {
         value={formData.department}
         onChange={handleChange}
         placeholder="Admin"
+        required
       />
 
       <div className="pt-2 absolute bottom-4 right-4">
