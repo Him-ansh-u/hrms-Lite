@@ -4,8 +4,10 @@ import Button from "../Button";
 import { createAttendanceSA } from "@/serverActions/attendanceSA";
 import { toast } from "sonner";
 import { AttendancePayload } from "@/types/attendanceTypes";
+import { useRouter } from "next/navigation";
 
 const AttendanceForm = ({ onClose }: { onClose: () => void }) => {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState<AttendancePayload>({
     employeeId: "",
@@ -38,7 +40,7 @@ const AttendanceForm = ({ onClose }: { onClose: () => void }) => {
       await createAttendanceSA(formData);
 
       toast.success("Attendance marked successfully");
-
+      router.refresh();
       onClose();
     } catch (error) {
       const message =
