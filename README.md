@@ -84,9 +84,8 @@ Create a `.env` file inside the `server` folder:
 
 ```env
 PORT=8080
+MONGO_DB_URL=<your_url_here>
 ```
-
-Add: MONGO_DB_URL
 
 ---
 
