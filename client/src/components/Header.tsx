@@ -4,13 +4,14 @@ import FormSidebar from "./FormSidebar";
 import Button from "./Button";
 import { useState } from "react";
 import AddEmployeeForm from "./forms/AddEmployeeForm";
+import AttendanceForm from "./forms/AttendanceForm";
 
 export default function Header({
   title,
   count,
 }: {
   title: string;
-  count: number;
+  count?: number;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -18,9 +19,11 @@ export default function Header({
       <header className="bg-white shadow-sm">
         <div className="flex items-center justify-between p-4">
           <h2 className="text-xl font-semibold text-gray-800">{title}</h2>
-          <div className="px-2 py-1 border border-gray-400 rounded-md">
-            Count: {count}
-          </div>
+          {count && (
+            <div className="px-2 py-1 border border-gray-400 rounded-md">
+              Count: {count}
+            </div>
+          )}
           <div className="flex items-center space-x-4">
             <Button variant="primary" onClick={() => setIsOpen(true)}>
               Add {title}
@@ -40,7 +43,12 @@ export default function Header({
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
       >
-        <AddEmployeeForm onClose={() => setIsOpen(false)} />
+        {title === "Attendance" && (
+          <AttendanceForm onClose={() => setIsOpen(false)} />
+        )}
+        {title === "Employees" && (
+          <AddEmployeeForm onClose={() => setIsOpen(false)} />
+        )}
       </FormSidebar>
     </>
   );

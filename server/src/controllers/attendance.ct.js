@@ -49,6 +49,7 @@ const getAttendanceByEmployee = async (req, res) => {
     }
 
     const records = await Attendance.find({ employee: employee._id })
+      .populate("employee")
       .sort({ date: -1 });
 
     return res.status(200).json({

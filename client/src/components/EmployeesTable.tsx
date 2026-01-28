@@ -6,7 +6,7 @@ import { EmployeeSchema } from "@/types/employeeTypes";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
-export default function TableExample({ data }: { data: EmployeeSchema[] }) {
+const EmployeesTable = ({ data }: { data: EmployeeSchema[] }) => {
   const router = useRouter();
   const employeeColumns = [
     {
@@ -52,4 +52,6 @@ export default function TableExample({ data }: { data: EmployeeSchema[] }) {
       />
     </div>
   );
-}
+};
+
+export default EmployeesTable;
